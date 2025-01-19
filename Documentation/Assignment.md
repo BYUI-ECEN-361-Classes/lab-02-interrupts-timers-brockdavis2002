@@ -75,9 +75,11 @@ Note the speed of D1/D2/D3 - they should seem like a 3-bit binary counter.
 
 Once you have all three LEDs blinking properly, answer the following questions:
 
-1. At what frequency does D1 toggle? [*answer here*]
+1. At what frequency does D1 toggle? 
+ 0.524 Hz about 1.9seconds
 
-2. Do all LEDs toggle at *exactly* the same time? [*answer here*]
+2. Do all LEDs toggle at *exactly* the same time? 
+No, all LEDs do not toggle at exactly the same time unless they are explicitly synchronized with the same timer and prescaler values.
 
 ## Part 2: Changing the clock tree
 
@@ -92,11 +94,11 @@ Change the clock tree to adjust the rates at which the LEDs blink.
 
 ## Part 2 Questions (3 pts)
 
-1. What has happened to the speed of the timers? [*answer here*]
+1. What has happened to the speed of the timers? [*they slowed down a bunch*]
 
-2. What is the new frequency of LED D1? [*answer here*]
+2. What is the new frequency of LED D1? [*D1: 0.262 Hz (overflows every 3.8 seconds)*]
 
-3. When we changed the frequency, did the Seven-Segment Light update rate change?  (hint, look at the clocks driving the APB1, APB2 buses and which timers are on which bus.  Recall that the Seven-Segment timer is Tim17) [*answer here*]
+3. When we changed the frequency, did the Seven-Segment Light update rate change?  (hint, look at the clocks driving the APB1, APB2 buses and which timers are on which bus.  Recall that the Seven-Segment timer is Tim17) [*When the APB2 prescaler is set to /8, the frequency of Tim17 will decrease, which will slow down the update rate of the Seven-Segment Display. The display will update less frequently compared to before the prescaler change.*]
 
 ## Part 3: Reaction Timer (5 pts)
 
@@ -132,6 +134,10 @@ For Seven Segment Display Functions, check the MultiFunctionShield.h header file
 
 * In the current code, there's no penalty for “Cheating” by pushing the stop button before all the “Go” lights turn on.  Implement some sort of indicator that the
   Stop button was pushed prematurely.
+
+
+[ * i did this one * ]
+
 
 * Change the “Go” lights to be all of the D1..4 LEDs instead of displaying '8888' on the SevenSegments.
 

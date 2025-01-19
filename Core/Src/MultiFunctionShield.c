@@ -25,6 +25,7 @@
 #define HIGH 1
 #define SevenSeg_LATCH_Port
 
+
 void shiftOut(	GPIO_TypeDef* dataPort,uint16_t dataPin,
 				GPIO_TypeDef* clockPort, uint16_t clockPin,
 				uint8_t bitOrder, uint8_t val)
